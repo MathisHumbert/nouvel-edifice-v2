@@ -1,0 +1,13 @@
+@use "../utils/_index" as *;
+
+%page {
+  display: none;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+%page--active {
+  display: block;
+  pointer-events: all;
+}

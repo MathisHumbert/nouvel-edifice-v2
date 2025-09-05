@@ -1,0 +1,111 @@
+@use "sass:map";
+@use "../utils/_index" as *;
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  font-size: calc(100vw / $sizes-desktop * 10);
+  font-family: $font-satoshi;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  background: $color-black;
+  color: $color-white;
+
+  // Comment to show scrollbar
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &-webkit-scrollbar {
+    display: none;
+  }
+
+  @include mobile {
+    font-size: calc(100vw / $sizes-mobile * 10);
+  }
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#scroll-wrapper {
+  position: fixed;
+  overflow-x: clip;
+  overflow-y: hidden;
+  height: 100vh;
+  height: 100dvh;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  html.loaded & {
+    position: relative;
+    overflow-y: scroll;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#scroll-content {
+  position: relative;
+}
+
+.content {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  z-index: z("content");
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: z("canvas");
+}
+
+[data-animation="appear"] span {
+  will-change: opacity, visibility;
+}
+
+[data-animation="text"] div div {
+  will-change: transform;
+}
+
+[data-animation="title"] {
+  overflow: clip;
+
+  div {
+    will-change: transform;
+  }
+}
