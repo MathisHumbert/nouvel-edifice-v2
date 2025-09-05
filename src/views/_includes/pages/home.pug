@@ -1,6 +1,66 @@
-.home(data-background="#1e1e1e" data-color="#dedede")
-  .home__top
-    h1=data.home.title
-    a(href="/about") About
-  .home__bottom
-    .home__media
+include ../mixins/icons.pug
+
+.home(data-background="#ffffff" data-color="#2F3538")
+  nav.home__nav
+    header.home__nav__header 
+      video.home__nav__video(src="/assets/hero-video.mp4" controls=false playsinline autoplay muted) 
+      +hero-icon('home__nav__icon')
+    ul.home__nav__list 
+      each item in data.nav
+        li.home__nav__item
+          a(href=item.key)=item.text
+  a.home__fixed(href="#contact") Contact
+  .home__hero 
+    h1.home__hero__title!=sanity.renderSanityText(sanity.hero.title[0]) 
+    img.home__hero__background(src="/assets/hero-background.png", alt="hero-background")
+  .home__manifesto#manifesto
+    header.home__header
+      h2.home__header__title!=sanity.renderSanityText(sanity.manifesto.title[0]) 
+      span.home__header__line
+      //- TODO
+  .home__achievements#achievements
+    header.home__header.reversed
+      h2.home__header__title!=sanity.renderSanityText(sanity.achievements.title[0]) 
+      span.home__header__line
+    //- TODO
+  .home__investment#investment
+    header.home__header
+      h2.home__header__title!=sanity.renderSanityText(sanity.investment.title[0]) 
+      span.home__header__line
+    //- TODO
+  .home__expertise#expertise
+    header.home__header.reversed
+      h2.home__header__title!=sanity.renderSanityText(sanity.expertise.title[0]) 
+      span.home__header__line
+    //- TODO
+  .home__about#about
+    header.home__header
+      h2.home__header__title!=sanity.renderSanityText(sanity.about.title[0]) 
+      span.home__header__line
+    //- TODO
+  footer.home__footer#contact 
+    h2=sanity.footer.title
+    .home__footer__inner 
+      .home__footer__infos
+        p.home__footer__address!=sanity.renderSanityText(sanity.footer.address[0]) 
+        a(href=`tel:${sanity.footer.tel}`)=sanity.footer.tel
+        a(href=`mailto:${sanity.footer.email}`)=sanity.footer.email 
+        .home__footer__linkedin   
+          p Retrouvez-nous sur
+          a(href="https://www.linkedin.com/company/nouvel-edifice/" target="_blank") 
+            +linkedin-icon('')
+      form.home__footer__form
+        input.home__footer__input(type="text" placeholder='Nom*' id="name" required)
+        .home__footer__form__group
+          input.home__footer__input(type="tel" placeholder='Téléphone*' id="phone" required)
+          input.home__footer__input(type="email" placeholder='Email*' id="email" required)  
+        input.home__footer__input(type="text" placeholder='Message*' id="message" required)
+        .home__footer__bottom
+          .home__footer__checkbox 
+            input(type="checkbox" id="checkbox" required)
+            label(for="checkbox") En cochant cette case, j’accepte d’être contacter afin de recevoir des informations et des propositions commerciales.
+          button.home__footer__submit(type="submit") Envoyer
+        p.home__footer__helper
+    .home__footer__terms
+      a(href="/legals")  MENTIONS LÉGALES
+      p Design and creation: IMPACT COMMUNICATION & DESIGN.

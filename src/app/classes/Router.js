@@ -39,10 +39,7 @@ export default class Router {
     const nextTemplate = this.app.templates[url];
     const page = this.app.pages[nextTemplate];
 
-    await Promise.all([
-      this.app.page.hide(nextTemplate),
-      this.app.canvas.hide(nextTemplate),
-    ]);
+    await Promise.all([this.app.page.hide(nextTemplate)]);
 
     this.app.page.remove();
 
@@ -68,11 +65,10 @@ export default class Router {
     await delay(100);
 
     const waitPageShow = this.app.page.show(prevTemplate);
-    const waitCanvasShow = this.app.canvas.show(this.app.template);
 
     events.emit("resize");
 
-    await Promise.all([waitPageShow, waitCanvasShow]);
+    await Promise.all([waitPageShow]);
 
     lenis.start();
 

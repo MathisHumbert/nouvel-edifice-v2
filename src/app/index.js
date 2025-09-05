@@ -9,13 +9,11 @@ import Stats from "stats.js";
 
 import Router from "./classes/Router";
 
-import Canvas from "./canvas";
-
 import Preloader from "./components/Preloader";
 import Grid from "./components/Grid";
 
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Legals from "./pages/Legals";
 
 import { events } from "./utils/events";
 
@@ -37,7 +35,6 @@ class App {
 
   init() {
     this.createPages();
-    this.createCanvas();
     this.createRouter();
     this.createPreloader();
 
@@ -52,12 +49,12 @@ class App {
   createPages() {
     this.pages = {
       home: new Home(),
-      about: new About(),
+      legals: new Legals(),
     };
 
     this.templates = {
       "/": "home",
-      "/about": "about",
+      "/legals": "legals",
     };
 
     if (this.url !== "/" && this.url.endsWith("/")) {
@@ -68,10 +65,6 @@ class App {
     this.page = this.pages[this.template];
 
     this.page.set();
-  }
-
-  createCanvas() {
-    this.canvas = new Canvas();
   }
 
   createRouter() {
@@ -102,15 +95,13 @@ class App {
    * Events.
    */
   async onPreloaded() {
-    this.canvas.onPreloaded();
     this.page.createPageLoader();
 
     const waitPageShow = this.page.show(null);
-    const waitCanvasShow = this.canvas.show(this.template);
 
     events.emit("resize");
 
-    await Promise.all([waitPageShow, waitCanvasShow]);
+    await Promise.all([waitPageShow]);
 
     this.router.onPreloaded();
   }

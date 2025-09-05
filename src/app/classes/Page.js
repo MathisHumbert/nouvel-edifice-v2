@@ -10,6 +10,7 @@ import Title from "../animations/Title";
 
 import { map, each } from "../utils/dom";
 import { events } from "../utils/events";
+import { easeOut } from "../utils/easing";
 
 export default class Page {
   constructor({ classes, id, element, elements }) {
@@ -138,10 +139,12 @@ export default class Page {
       const tl = showPage || gsap.timeline();
 
       if (!showPage) {
-        tl.set(document.documentElement, {
+        tl.to(document.documentElement, {
           backgroundColor: this.element.getAttribute("data-background"),
           color: this.element.getAttribute("data-color"),
-        }).set(this.element, { autoAlpha: 1 }, 0);
+          duration: 0.5,
+          ease: easeOut,
+        }).to(this.element, { autoAlpha: 1, duration: 0.5, ease: easeOut }, 0);
       }
 
       tl.call(() => {

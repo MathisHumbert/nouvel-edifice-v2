@@ -1,0 +1,9 @@
+.legals
+  .legals__inner
+    a.legals__link(href="/") Fermer X
+    h1.legals__title MENTIONS LÉGALES
+    ul.legals__list 
+      each item in data.legals
+        li.legals__item 
+          h2=item.title
+          p=item.text

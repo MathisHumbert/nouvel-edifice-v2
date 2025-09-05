@@ -1,0 +1,58 @@
+@use "../../shared/index" as *;
+@use "../../utils/index" as *;
+
+.legals {
+  @extend %page;
+
+  &--active {
+    @extend %page--active;
+  }
+}
+
+.legals__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rem;
+  padding: 12rem 0 14rem;
+}
+
+.legals__link {
+  position: fixed;
+  top: 6rem;
+  right: 7.2rem;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  text-transform: uppercase;
+}
+
+.legals__title {
+  font-size: 4.2rem;
+  line-height: 6.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.legals__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 115.2rem;
+}
+
+.legals__item {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  h2,
+  p {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+}

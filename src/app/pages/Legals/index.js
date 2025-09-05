@@ -1,11 +1,11 @@
 import Page from "../../classes/Page";
 
-export default class Home extends Page {
+export default class Legals extends Page {
   constructor() {
     super({
-      id: "home",
-      classes: { active: "home--active" },
-      element: ".home",
+      id: "legals",
+      classes: { active: "legals--active" },
+      element: ".legals",
       elements: {},
     });
   }
