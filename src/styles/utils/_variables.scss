@@ -30,7 +30,7 @@ $sizes: (
   "mobile": 1000,
 );
 
-$z-indexes: ("grid", "preloader", "navigation", "content", "canvas");
+$z-indexes: ("grid", "preloader", "navigation", "fixed", "content", "canvas");
 
 $grid: (
   "count": (

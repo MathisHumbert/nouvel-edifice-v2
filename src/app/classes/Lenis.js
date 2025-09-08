@@ -13,8 +13,8 @@ class LenisScroll {
 
   init() {
     this.lenis = new Lenis({
-      // wrapper: document.getElementById("scroll-wrapper"),
-      // content: document.getElementById("scroll-content"),
+      wrapper: document.getElementById("scroll-wrapper"),
+      content: document.getElementById("scroll-content"),
       lerp: 0.125,
       wheelMultiplier: 0.75,
       touchMultiplier: 0.75,

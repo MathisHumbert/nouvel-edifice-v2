@@ -4,10 +4,10 @@ html(lang="en")
     include _includes/layouts/head.pug
 
   body
-    //- #scroll-wrapper
-      //- #scroll-content
-    .content 
-      include _includes/pages/home.pug
-      include _includes/pages/legals.pug
+    #scroll-wrapper
+      #scroll-content
+        .content 
+          include _includes/pages/home.pug
+          include _includes/pages/legals.pug
 
   script(type="module", src="/src/app/index.js")

@@ -13,8 +13,6 @@ export default class Component {
     };
 
     this.create();
-
-    this.addEventListeners();
   }
 
   create() {
@@ -44,6 +42,4 @@ export default class Component {
       }
     });
   }
-
-  addEventListeners() {}
 }

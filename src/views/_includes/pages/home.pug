@@ -17,27 +17,115 @@ include ../mixins/icons.pug
     header.home__header
       h2.home__header__title!=sanity.renderSanityText(sanity.manifesto.title[0]) 
       span.home__header__line
-      //- TODO
+    .home__manifesto__inner
+      button.home__manifesto__prev 
+        +arrow-icon("")
+      .home__manifesto__slider 
+        ul.home__manifesto__list 
+          each item, index in sanity.manifesto.items 
+            li.home__manifesto__item
+              .home__manifesto__item__infos 
+                h3=(index + 1).toString().padStart(2, '0')
+                h4=item.title 
+                h5=item.subtitle 
+                p=item.description
+                +pincel-icon("")
+              figure 
+                img(src=sanity.urlFor(item.image, 1280), alt=item.image.alt)
+      button.home__manifesto__next 
+        +arrow-icon("")
   .home__achievements#achievements
     header.home__header.reversed
       h2.home__header__title!=sanity.renderSanityText(sanity.achievements.title[0]) 
       span.home__header__line
-    //- TODO
+    .home__achievements__inner
+      if sanity.achievements.items.length > 0
+        button.home__achievements__prev 
+          +arrow-icon("")
+      .home__achievements__slider 
+        ul.home__achievements__list 
+          each item, index in sanity.achievements.items 
+            li.home__achievements__item
+              header.home__achievements__item__header
+                h2=item.title 
+                if item.nouveau
+                  h2.new Nouveau
+              .home__achievements__item__inner
+                .home__achievements__medias
+                  button.home__achievements__medias_prev
+                    +small-arrow-icon("")
+                  .home__achievements__medias__inner 
+                    if item.images.length > 0
+                      each media in item.images 
+                        figure 
+                          img(src=sanity.urlFor(media, 1280), alt=media.alt)
+                  button.home__achievements__medias_next
+                    +small-arrow-icon("")
+                .home__achievements__infos 
+                  div.home__achievements__infos__content!=sanity.renderPortableText(item.description, '<span class="separator"></span>')
+                  button Téléchargez la brochure
+      if sanity.achievements.items.length > 0
+        button.home__achievements__next 
+          +arrow-icon("")
   .home__investment#investment
     header.home__header
       h2.home__header__title!=sanity.renderSanityText(sanity.investment.title[0]) 
       span.home__header__line
-    //- TODO
+    h3.home__investment__subtitle!=sanity.renderSanityText(sanity.investment.subtitle[0])
+    .home__investment__list 
+      each item in sanity.investment.items 
+        .home__investment__item 
+          h3 
+            strong + 
+            | Investir en 
+            strong loi #{item.title}
+          .home__investment__sublist
+            p.home__investment__item__description=item.description
+            each subitem in item.subItems
+              .home__investment__subitem
+                header.home__investment__subitem__header
+                  p=subitem.title 
+                  p +
+                div.home__investment__subitem__description!=sanity.renderPortableText(subitem.description)
   .home__expertise#expertise
     header.home__header.reversed
       h2.home__header__title!=sanity.renderSanityText(sanity.expertise.title[0]) 
       span.home__header__line
-    //- TODO
+    h3.home__expertise__subtitle!=sanity.renderSanityText(sanity.expertise.subtitle[0])
+    ul.home__expertise__list 
+      each item in sanity.expertise.items
+        li.home__expertise__item
+          figure 
+            img(src=sanity.urlFor(item.image, 1280), alt=item.image.alt)
+          div.home__expertise__item__infos
+            h4=item.title
+            p=item.description
+            +pincel-icon("")
   .home__about#about
     header.home__header
       h2.home__header__title!=sanity.renderSanityText(sanity.about.title[0]) 
       span.home__header__line
-    //- TODO
+    .home__about__inner 
+      .home__about__left
+        figure 
+          img(src=sanity.urlFor(sanity.about.leftBlock.image, 1280), alt=sanity.about.leftBlock.image.alt)
+        p!=sanity.renderSanityText(sanity.about.leftBlock.image.description[0])
+      .home__about__center
+        p.home__about__center__description!=sanity.renderSanityText(sanity.about.leftBlock.description)
+        .home__about__center__quote
+          +pincel-icon("")
+          p=sanity.about.leftBlock.quote
+          +pincel-icon("")
+      .home__about__right
+        p.home__about__right__title=sanity.about.rightBlock.title
+        p.home__about__right__description=sanity.about.rightBlock.description
+        ul.home__about__right__list
+          each item, index in sanity.about.rightBlock.items 
+            li
+              h4=item.number 
+              p=item.text 
+              if index != sanity.about.rightBlock.items.length - 1
+                span
   footer.home__footer#contact 
     h2=sanity.footer.title
     .home__footer__inner 

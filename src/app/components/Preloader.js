@@ -23,7 +23,7 @@ export default class Preloader extends Component {
 
     const preloaderAnimation = this.animatePreloader();
 
-    Promise.all([preloadImages, preloadFonts, preloaderAnimation]).then(() => {
+    Promise.all([preloadFonts, preloaderAnimation]).then(() => {
       if (this.element) {
         this.element.parentNode.removeChild(this.element);
       }

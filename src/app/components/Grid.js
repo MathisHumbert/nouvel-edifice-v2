@@ -18,6 +18,7 @@ export default class Grid extends Component {
     );
 
     this.createGrid();
+    this.addEventListeners();
   }
 
   createGrid() {
