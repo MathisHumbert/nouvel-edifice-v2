@@ -105,4 +105,30 @@ export default class Investment extends Component {
       });
     });
   }
+
+  removeEventListeners() {
+    each(this.elements.titles, (title, index) => {
+      const item = this.elements.items[index];
+
+      title.removeEventListener("click", () => {
+        if (item.isOpen) {
+          this.closeSubList(item);
+        } else {
+          this.openSubList(item);
+        }
+      });
+
+      each(item.headerElements, (header, headerIndex) => {
+        const description = item.descriptionElements[headerIndex];
+
+        header.removeEventListener("click", () => {
+          if (header.isOpen) {
+            this.closeSubItem(header, description);
+          } else {
+            this.openSubItem(header, description);
+          }
+        });
+      });
+    });
+  }
 }

@@ -1,0 +1,196 @@
+@use "../shared/index" as *;
+@use "../utils/index" as *;
+
+.booklet {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: z("booklet");
+  background: rgba(47, 53, 56, 0.8);
+  cursor: pointer;
+
+  display: none;
+  opacity: 0;
+
+  .booklet__inner {
+    position: relative;
+    width: 96rem;
+    padding: 4.8rem 6rem;
+    background: $color-beige;
+    color: $color-black;
+    border-radius: 4rem;
+    cursor: initial;
+
+    @include mobile {
+      width: 90vw;
+    }
+  }
+
+  .booklet__close {
+    position: absolute;
+    right: 6rem;
+    top: 2.4rem;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    padding: 0;
+
+    @include mobile {
+      font-size: calc(1.2rem * 1.5);
+      line-height: calc(1.4rem * 1.5);
+    }
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    color: $color-orange;
+    font-weight: 500;
+    margin-bottom: 4rem;
+  }
+
+  .booklet__form {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .booklet__form__group {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .booklet__form__input {
+    width: 100%;
+    padding: 0 0 1.6rem 0;
+    font-family: $font-maquette;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.05rem;
+    font-weight: 300;
+    color: currentColor;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    background: none;
+    outline: none;
+    border-radius: 0;
+
+    @include mobile {
+      font-size: clamp(16px, 2.6rem, 2.6rem);
+      line-height: 3.4rem;
+      letter-spacing: 0.13rem;
+    }
+
+    &::placeholder {
+      font-family: $font-maquette;
+      font-size: 2.6rem;
+      line-height: 3.4rem;
+      letter-spacing: 0.13rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: currentColor;
+    }
+  }
+
+  .booklet__form__checkbox {
+    display: flex;
+    gap: 6rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    label {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      letter-spacing: 0.05rem;
+
+      @include mobile {
+        font-size: calc(1.6rem * 1.25);
+        line-height: calc(2.4rem * 1.25);
+      }
+    }
+
+    input {
+      border-radius: 0;
+      border: none;
+      margin: 0;
+    }
+  }
+
+  .booklet__form__confirm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .booklet__form__confirm__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    input {
+      border-radius: 0;
+      border: none;
+      margin: 0;
+    }
+
+    label {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      max-width: 42rem;
+
+      @include mobile {
+        font-size: calc(1.4rem * 1.25);
+        line-height: calc(2rem * 1.25);
+        max-width: 52rem;
+      }
+    }
+  }
+
+  .booklet__form__submit {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    font-weight: bold;
+    color: $color-orange;
+    text-transform: uppercase;
+
+    &.loading {
+      cursor: wait;
+    }
+  }
+
+  .booklet__form__help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p:first-of-type {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+
+      @include mobile {
+        font-size: calc(1.2rem * 1.5);
+        line-height: calc(1.4rem * 1.5);
+      }
+    }
+
+    p:last-of-type {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      text-transform: uppercase;
+      color: $color-orange;
+
+      @include mobile {
+        font-size: calc(1.4rem * 1.5);
+        line-height: calc(2rem * 1.5);
+      }
+    }
+  }
+}

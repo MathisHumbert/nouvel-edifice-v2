@@ -40,19 +40,14 @@ body {
 }
 
 #scroll-wrapper {
-  position: fixed;
+  position: relative;
   overflow-x: clip;
-  overflow-y: hidden;
+  overflow-y: scroll;
   height: 100vh;
   height: 100dvh;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
-
-  html.loaded & {
-    position: relative;
-    overflow-y: scroll;
-  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -86,6 +81,11 @@ body {
     letter-spacing: 0.5rem;
     text-transform: uppercase;
 
+    @include mobile {
+      font-size: calc(5rem * 0.75);
+      line-height: calc(5.5rem * 0.75);
+    }
+
     strong {
       color: $color-orange;
     }
@@ -96,6 +96,10 @@ body {
     height: 1px;
     background: #707070;
   }
+}
+
+.text-colored {
+  color: $color-orange;
 }
 
 a {

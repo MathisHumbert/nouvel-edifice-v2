@@ -1,8 +1,10 @@
-import Page from "../../classes/Page";
+import gsap from "gsap";
 
+import Page from "../../classes/Page";
 import Achievements from "./Achievements";
 import Investment from "./Investment";
 import Manifesto from "./Manifesto";
+import Contact from "./Contact";
 
 export default class Home extends Page {
   constructor() {
@@ -26,6 +28,7 @@ export default class Home extends Page {
     this.manifesto = new Manifesto();
     this.achievements = new Achievements();
     this.investment = new Investment();
+    this.contact = new Contact();
 
     this.elements.navVideo.addEventListener("ended", () => {
       gsap.to(this.elements.navVideo, {
@@ -70,6 +73,7 @@ export default class Home extends Page {
     this.manifesto.addEventListeners();
     this.achievements.addEventListeners();
     this.investment.addEventListeners();
+    this.contact.addEventListeners();
 
     super.addEventListeners();
   }
@@ -78,6 +82,7 @@ export default class Home extends Page {
     this.manifesto.removeEventListeners();
     this.achievements.removeEventListeners();
     this.investment.removeEventListeners();
+    this.contact.removeEventListeners();
 
     super.removeEventListeners();
   }

@@ -17,9 +17,9 @@ class LenisScroll {
       content: document.getElementById("scroll-content"),
       lerp: 0.125,
       wheelMultiplier: 0.75,
-      touchMultiplier: 0.75,
+      touchMultiplier: 0.5,
       autoRaf: false,
-      anchors: true,
+      // anchors: true,
     });
 
     this.lenis.on("scroll", ScrollTrigger.update);

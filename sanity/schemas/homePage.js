@@ -52,16 +52,20 @@ export default {
       fields: [
         {
           name: 'title',
-          title: 'Titre principal',
+          title: 'Titre',
           type: 'array',
           of: [
             {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
+              lists: [],
             },
           ],
           validation: (Rule) => Rule.max(1),
@@ -83,7 +87,10 @@ export default {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
               lists: [],
@@ -151,7 +158,10 @@ export default {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
               lists: [],
@@ -186,7 +196,10 @@ export default {
                       type: 'block',
                       styles: [{title: 'Normal', value: 'normal'}],
                       marks: {
-                        decorators: [{title: 'Gras', value: 'strong'}],
+                        decorators: [
+                          {title: 'Gras', value: 'strong'},
+                          {title: 'Underline', value: 'underline'},
+                        ],
                         annotations: [],
                       },
                       lists: [
@@ -237,9 +250,13 @@ export default {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
+              lists: [],
             },
           ],
           validation: (Rule) => Rule.max(1),
@@ -253,7 +270,10 @@ export default {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
               lists: [],
@@ -271,8 +291,23 @@ export default {
               fields: [
                 {
                   name: 'title',
-                  title: 'Titre',
-                  type: 'string',
+                  title: 'Titre principal',
+                  type: 'array',
+                  of: [
+                    {
+                      type: 'block',
+                      styles: [{title: 'Normal', value: 'normal'}],
+                      marks: {
+                        decorators: [
+                          {title: 'Gras', value: 'strong'},
+                          {title: 'Underline', value: 'underline'},
+                        ],
+                        annotations: [],
+                      },
+                      lists: [],
+                    },
+                  ],
+                  validation: (Rule) => Rule.max(1),
                 },
                 {
                   name: 'description',
@@ -336,7 +371,10 @@ export default {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
               lists: [],
@@ -353,7 +391,10 @@ export default {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
               lists: [],
@@ -415,9 +456,13 @@ export default {
               type: 'block',
               styles: [{title: 'Normal', value: 'normal'}],
               marks: {
-                decorators: [{title: 'Gras', value: 'strong'}],
+                decorators: [
+                  {title: 'Gras', value: 'strong'},
+                  {title: 'Underline', value: 'underline'},
+                ],
                 annotations: [],
               },
+              lists: [],
             },
           ],
           validation: (Rule) => Rule.max(1),
@@ -452,8 +497,10 @@ export default {
                         decorators: [{title: 'Gras', value: 'strong'}],
                         annotations: [],
                       },
+                      lists: [],
                     },
                   ],
+                  validation: (Rule) => Rule.max(1),
                 },
               ],
             },

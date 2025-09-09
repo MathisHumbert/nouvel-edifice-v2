@@ -108,6 +108,10 @@ export default class Router {
               url: link.href,
               push: true,
             });
+          } else {
+            const url = new URL(link.href);
+            const fragment = url.hash;
+            lenis.scrollTo(fragment);
           }
         };
       } else if (isNotEmail && isNotPhone) {

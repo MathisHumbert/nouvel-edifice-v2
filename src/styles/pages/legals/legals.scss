@@ -38,6 +38,10 @@
   flex-direction: column;
   gap: 4rem;
   max-width: 115.2rem;
+
+  @include mobile {
+    max-width: 88rem;
+  }
 }
 
 .legals__item {

@@ -20,6 +20,13 @@
   padding: 7rem 14rem 0;
   z-index: z("navigation");
 
+  @include mobile {
+    padding: 7rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6rem;
+  }
+
   .home__nav__header {
     position: relative;
     width: 45.8rem;
@@ -51,6 +58,11 @@
     letter-spacing: 0.02rem;
     text-transform: uppercase;
     font-weight: 300;
+
+    &:hover {
+      color: $color-orange;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -81,12 +93,21 @@
   padding: 34rem 32rem 16rem;
   overflow-x: clip;
 
+  @include mobile {
+    padding: 42rem 8rem 16rem;
+  }
+
   .home__hero__title {
     font-size: 5rem;
     line-height: 8rem;
     font-weight: 300;
     letter-spacing: 0.5rem;
     height: 30rem;
+
+    @include mobile {
+      font-size: calc(5rem * 0.75);
+      line-height: calc(8rem * 0.75);
+    }
 
     strong {
       color: $color-orange;
@@ -103,10 +124,9 @@
     z-index: -1;
 
     @include mobile {
-      width: calc(154.6rem * 0.75);
-      height: calc(141rem * 0.75);
-      top: inherit;
-      bottom: 0;
+      width: calc(154.6rem * 0.5);
+      height: calc(141rem * 0.5);
+      top: 26rem;
     }
   }
 }
@@ -115,6 +135,11 @@
   position: relative;
   padding: 0 32rem;
   margin-bottom: 6.4rem;
+
+  @include mobile {
+    padding: 0 8rem;
+    margin-bottom: 12rem;
+  }
 
   .home__manifesto__inner {
     position: relative;
@@ -137,6 +162,11 @@
     left: -16rem;
     top: 50%;
     transform: translate(0, -50%);
+
+    @include mobile {
+      left: -7rem;
+      z-index: 2;
+    }
   }
 
   .home__manifesto__next {
@@ -144,6 +174,11 @@
     right: -16rem;
     top: 50%;
     transform: translate(0, -50%) rotate(180deg);
+
+    @include mobile {
+      right: -7rem;
+      z-index: 2;
+    }
   }
 
   .home__manifesto__slider {
@@ -163,6 +198,15 @@
     display: flex;
     align-items: center;
     background: $color-beige;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    @include mobile {
+      width: calc(100vw - 8rem * 2);
+    }
   }
 
   .home__manifesto__item__infos {
@@ -213,6 +257,10 @@
     width: 100%;
     aspect-ratio: 1 / 1;
 
+    @include mobile {
+      aspect-ratio: 1 / 0.56;
+    }
+
     img {
       @extend %cover;
 
@@ -225,6 +273,11 @@
   position: relative;
   padding: 0 32rem;
   margin-bottom: 6.4rem;
+
+  @include mobile {
+    padding: 0 8rem;
+    margin-bottom: 12rem;
+  }
 
   .home__achievements__inner {
     position: relative;
@@ -248,6 +301,11 @@
     left: -16rem;
     top: 50%;
     transform: translate(0, -50%);
+
+    @include mobile {
+      left: -7rem;
+      z-index: 2;
+    }
   }
 
   .home__achievements__next {
@@ -255,6 +313,11 @@
     right: -16rem;
     top: 50%;
     transform: translate(0, -50%) rotate(180deg);
+
+    @include mobile {
+      right: -7rem;
+      z-index: 2;
+    }
   }
 
   .home__achievements__slider {
@@ -272,6 +335,10 @@
     flex-direction: column;
     width: calc(100vw - 32rem * 2);
     background: $color-beige;
+
+    @include mobile {
+      width: calc(100vw - 8rem * 2);
+    }
   }
 
   .home__achievements__item__header {
@@ -288,6 +355,11 @@
       font-weight: bold;
       text-transform: uppercase;
       color: $color-white;
+
+      @include mobile {
+        font-size: calc(2.6rem * 0.75);
+        line-height: calc(2.6rem * 0.75);
+      }
 
       &:first-of-type {
         width: 100%;
@@ -323,6 +395,10 @@
       width: 85rem;
       height: 100%;
       cursor: pointer;
+
+      @include mobile {
+        width: 58rem;
+      }
 
       img {
         @extend %cover;
@@ -405,6 +481,11 @@
       text-transform: uppercase;
       color: $color-white;
       background: $color-black;
+
+      @include mobile {
+        font-size: calc(2.6rem * 0.75);
+        line-height: calc(2.6rem * 0.75);
+      }
     }
   }
 }
@@ -416,6 +497,11 @@
   gap: 6.4rem;
   padding: 0 32rem;
   margin-bottom: 6.4rem;
+
+  @include mobile {
+    padding: 0 8rem;
+    margin-bottom: 12rem;
+  }
 
   .home__investment__subtitle {
     font-size: 2.6rem;
@@ -514,6 +600,11 @@
   padding: 0 32rem;
   margin-bottom: 6.4rem;
 
+  @include mobile {
+    padding: 0 8rem;
+    margin-bottom: 12rem;
+  }
+
   .home__expertise__subtitle {
     font-size: 2.6rem;
     line-height: 4.4rem;
@@ -532,6 +623,10 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 8rem;
     column-gap: 6rem;
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .home__expertise__item {
@@ -596,9 +691,18 @@
   padding: 0 32rem;
   margin-bottom: 6.4rem;
 
+  @include mobile {
+    padding: 0 8rem;
+    margin-bottom: 12rem;
+  }
+
   .home__about__inner {
     display: flex;
     gap: 4rem;
+
+    @include mobile {
+      flex-wrap: wrap;
+    }
   }
 
   .home__about__left {
@@ -607,6 +711,10 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    @include mobile {
+      width: 28rem;
+    }
 
     figure {
       position: relative;
@@ -687,6 +795,12 @@
     padding-left: 4rem;
     border-left: 1px solid #707070;
 
+    @include mobile {
+      width: 100%;
+      border-left: none;
+      margin-top: 4rem;
+    }
+
     .home__about__right__title {
       font-size: 2.2rem;
       line-height: 3rem;
@@ -703,7 +817,15 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      max-width: 18rem;
+
+      @include mobile {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      li {
+        max-width: 18rem;
+      }
 
       h4 {
         font-size: 4.6rem;
@@ -726,6 +848,10 @@
         height: 2px;
         margin-top: 2rem;
         background: #2f3539;
+
+        @include mobile {
+          display: none;
+        }
       }
     }
   }
@@ -773,8 +899,7 @@
     }
   }
 
-  .home__footer__infos,
-  .home__footer__helper {
+  .home__footer__infos {
     font-size: 2.8rem;
     line-height: 4.5rem;
     letter-spacing: 0.14rem;
@@ -796,7 +921,7 @@
       margin-bottom: 2rem;
     }
 
-    svg {
+    img {
       width: 19rem;
       height: 5.1rem;
     }
@@ -891,10 +1016,42 @@
     }
   }
 
+  .home__footer__help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p:first-of-type {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+
+      @include mobile {
+        font-size: calc(1.2rem * 1.5);
+        line-height: calc(1.4rem * 1.5);
+      }
+    }
+
+    p:last-of-type {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      text-transform: uppercase;
+      color: $color-orange;
+
+      @include mobile {
+        font-size: calc(1.4rem * 1.5);
+        line-height: calc(2rem * 1.5);
+      }
+    }
+  }
+
   .home__footer__terms {
     font-size: 2rem;
     line-height: 3rem;
     margin: 0 5.5rem;
+
+    @include mobile {
+      margin: 0;
+    }
 
     a {
       padding: 0;

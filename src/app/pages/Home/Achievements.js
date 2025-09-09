@@ -13,6 +13,7 @@ export default class Achievements extends Component {
         items: null,
         prevButton: ".home__achievements__prev",
         nextButton: ".home__achievements__next",
+        downloads: ".home__achievements__download",
       },
     });
 
@@ -105,12 +106,25 @@ export default class Achievements extends Component {
 
       this.resizeMedias();
     });
+
     this.elements.prevButton.addEventListener("click", () => {
       if (this.total > 1) {
         this.scroll.target -= this.itemWidth;
       }
 
       this.resizeMedias();
+    });
+
+    each(this.elements.downloads, (item) => {
+      item.addEventListener("click", () => {
+        events.emit("show_booklet");
+      });
+    });
+
+    each(this.medias, (media) => {
+      if (media && media.addEventListeners) {
+        media.addEventListeners();
+      }
     });
 
     events.on("resize", this.onResize);
@@ -123,19 +137,20 @@ export default class Achievements extends Component {
         this.scroll.target += this.itemWidth;
       }
     });
+
     this.elements.prevButton.addEventListener("click", () => {
       if (this.total > 1) {
         this.scroll.target -= this.itemWidth;
       }
     });
 
-    events.off("resize", this.onResize);
-    events.off("update", this.update);
-
     each(this.medias, (media) => {
       if (media && media.removeEventListeners) {
         media.removeEventListeners();
       }
     });
+
+    events.off("resize", this.onResize);
+    events.off("update", this.update);
   }
 }

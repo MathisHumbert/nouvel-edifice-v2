@@ -58,6 +58,9 @@ function renderSanityText(blocks, separator = "") {
             if (mark === "strong") {
               text = `<strong>${text}</strong>`;
             }
+            if (mark === "underline") {
+              text = `<span class="text-colored">${text}</span>`;
+            }
           });
         }
 
@@ -95,8 +98,6 @@ function renderPortableText(blocks, separator = null) {
 
 async function fecthHome() {
   const [home] = await client.fetch('*[_type == "homePage"]');
-
-  console.log(home.achievements.items[0].description[2]);
 
   return home;
 }

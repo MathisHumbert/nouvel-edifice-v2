@@ -1,0 +1,28 @@
+.booklet
+  .booklet__inner 
+    button.booklet__close FERMER  X
+    h2 Merci de remplir le formulaire pour télécharger la brochure :
+    form.booklet__form
+      input.booklet__form__input(type="text" placeholder='Nom*' id="name" required)
+      .booklet__form__group
+        input.booklet__form__input(type="tel" placeholder='Téléphone*' id="phone" required)
+        input.booklet__form__input(type="email" placeholder='Email*' id="email" required) 
+      .booklet__form__checkbox 
+        div 
+          input(type="checkbox" name="Futurs propriétaires" id="futurs-propriétaires")
+          label(for="futurs-propriétaires") Futurs propriétaires
+        div 
+          input(type="checkbox" name="Investisseurs" id="investisseurs")
+          label(for="investisseurs") Investisseurs
+        div 
+          input(type="checkbox", name="Propriétaires fonciers" id="propriétaires-fonciers")
+          label(for="propriétaires-fonciers") Propriétaires fonciers
+      input.booklet__form__input(type="text" placeholder='Message*' id="message" required)
+      .booklet__form__confirm 
+        .booklet__form__confirm__checkbox
+          input(type="checkbox" name="Confirm" id="confirm" required)
+          label(for="confirm") En cochant cette case, j’accepte que les informations saisies soient exploitées à des fins de prospection commerciale.
+        button.booklet__form__submit(type="submit") Envoyer
+      .booklet__form__help 
+        p * Champs obligatoires
+        p.booklet__form__help__message

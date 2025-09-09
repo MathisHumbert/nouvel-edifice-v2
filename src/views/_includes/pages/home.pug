@@ -63,7 +63,7 @@ include ../mixins/icons.pug
                     +small-arrow-icon("")
                 .home__achievements__infos 
                   div.home__achievements__infos__content!=sanity.renderPortableText(item.description, '<span class="separator"></span>')
-                  button Téléchargez la brochure
+                  button.home__achievements__download Téléchargez la brochure
       if sanity.achievements.items.length > 0
         button.home__achievements__next 
           +arrow-icon("")
@@ -136,7 +136,7 @@ include ../mixins/icons.pug
         .home__footer__linkedin   
           p Retrouvez-nous sur
           a(href="https://www.linkedin.com/company/nouvel-edifice/" target="_blank") 
-            +linkedin-icon('')
+            img(src="/assets/linkedin.png", alt="linkedin icon")
       form.home__footer__form
         input.home__footer__input(type="text" placeholder='Nom*' id="name" required)
         .home__footer__form__group
@@ -145,10 +145,12 @@ include ../mixins/icons.pug
         input.home__footer__input(type="text" placeholder='Message*' id="message" required)
         .home__footer__bottom
           .home__footer__checkbox 
-            input(type="checkbox" id="checkbox" required)
+            input(type="checkbox" id="checkbox" name="checkbox" required)
             label(for="checkbox") En cochant cette case, j’accepte d’être contacter afin de recevoir des informations et des propositions commerciales.
           button.home__footer__submit(type="submit") Envoyer
-        p.home__footer__helper
+        .home__footer__help
+          p * Champs obligatoires
+          p.home__footer__help__message
     .home__footer__terms
       a(href="/legals")  MENTIONS LÉGALES
       p Design and creation: IMPACT COMMUNICATION & DESIGN.
