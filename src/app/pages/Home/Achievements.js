@@ -1,6 +1,5 @@
 import Component from "../../classes/Component";
-import AchievementsMedia from "./AchievementsMedia";
-import { each, getOffset, map } from "../../utils/dom";
+import { each, getOffset } from "../../utils/dom";
 import { events } from "../../utils/events";
 import { lerp } from "../../utils/math";
 
@@ -14,14 +13,13 @@ export default class Achievements extends Component {
         prevButton: ".home__achievements__prev",
         nextButton: ".home__achievements__next",
         downloads: ".home__achievements__download",
+        figures: ".home__achievements__item__figure",
       },
     });
 
     this.elements.items = this.element.querySelectorAll(
       ".home__achievements__item"
     );
-
-    this.createMedias();
 
     this.scroll = {
       current: 0,
@@ -32,26 +30,6 @@ export default class Achievements extends Component {
     this.itemWidth = 0;
     this.index = 0;
     this.total = this.elements.items.length;
-  }
-
-  createMedias() {
-    this.medias = map(this.elements.items, (item) => {
-      const mediaElement = item.querySelector(".home__achievements__medias");
-
-      if (mediaElement) {
-        return new AchievementsMedia({ element: mediaElement });
-      }
-
-      return null;
-    });
-  }
-
-  resizeMedias() {
-    each(this.medias, (media) => {
-      if (media && media.onResize) {
-        media.onResize();
-      }
-    });
   }
 
   onResize() {
@@ -103,16 +81,12 @@ export default class Achievements extends Component {
       if (this.total > 1) {
         this.scroll.target += this.itemWidth;
       }
-
-      this.resizeMedias();
     });
 
     this.elements.prevButton.addEventListener("click", () => {
       if (this.total > 1) {
         this.scroll.target -= this.itemWidth;
       }
-
-      this.resizeMedias();
     });
 
     each(this.elements.downloads, (item) => {
@@ -121,10 +95,12 @@ export default class Achievements extends Component {
       });
     });
 
-    each(this.medias, (media) => {
-      if (media && media.addEventListeners) {
-        media.addEventListeners();
-      }
+    each(this.elements.figures, (item) => {
+      const images = JSON.parse(item.dataset.images);
+
+      item.addEventListener("click", () => {
+        events.emit("show_slider", images);
+      });
     });
 
     events.on("resize", this.onResize);
@@ -144,10 +120,18 @@ export default class Achievements extends Component {
       }
     });
 
-    each(this.medias, (media) => {
-      if (media && media.removeEventListeners) {
-        media.removeEventListeners();
-      }
+    each(this.elements.downloads, (item) => {
+      item.addEventListener("click", () => {
+        events.off("show_booklet");
+      });
+    });
+
+    each(this.elements.figures, (item) => {
+      const images = JSON.parse(item.dataset.images);
+
+      item.addEventListener("click", () => {
+        events.off("show_slider", images);
+      });
     });
 
     events.off("resize", this.onResize);

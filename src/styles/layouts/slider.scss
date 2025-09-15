@@ -1,0 +1,98 @@
+@use "../shared/index" as *;
+@use "../utils/index" as *;
+
+.slider {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: z("slider");
+  background: rgba(47, 53, 56, 0.8);
+  cursor: pointer;
+
+  display: none;
+  opacity: 0;
+
+  .slider__inner {
+    position: relative;
+    width: 60vw;
+    aspect-ratio: 1 / 0.56;
+    cursor: initial;
+  }
+
+  .slider__medias {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .slider__items {
+    display: flex;
+    width: fit-content;
+  }
+
+  figure {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      @extend %cover;
+
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .slider__image {
+    width: 60vw;
+    aspect-ratio: 1 / 0.56;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .slider__prev,
+  .slider__next {
+    width: 6.4rem;
+    height: 6.4rem;
+    padding: 0;
+    z-index: 2;
+
+    svg {
+      width: 6.4rem;
+      height: 6.4rem;
+
+      path {
+        stroke: $color-white;
+      }
+    }
+  }
+
+  .slider__prev {
+    position: absolute;
+    left: -16rem;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    @include mobile {
+      left: -7rem;
+      z-index: 2;
+    }
+  }
+
+  .slider__next {
+    position: absolute;
+    right: -16rem;
+    top: 50%;
+    transform: translate(0, -50%) rotate(180deg);
+
+    @include mobile {
+      right: -7rem;
+      z-index: 2;
+    }
+  }
+}

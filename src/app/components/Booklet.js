@@ -1,5 +1,7 @@
 import gsap from "gsap";
+
 import Component from "../classes/Component";
+import { lenis } from "../classes/Lenis";
 import { expoOut } from "../utils/easing";
 import { events } from "../utils/events";
 
@@ -32,6 +34,8 @@ export default class Booklet extends Component {
       duration: 0.7,
       ease: expoOut,
       onComplete: () => {
+        lenis.start();
+
         gsap.set(this.element, {
           display: "none",
         });
@@ -40,6 +44,8 @@ export default class Booklet extends Component {
   }
 
   showBooklet() {
+    lenis.stop();
+
     gsap.set(this.element, {
       display: "flex",
     });

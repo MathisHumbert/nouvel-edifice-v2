@@ -12,6 +12,7 @@ import Router from "./classes/Router";
 import Preloader from "./components/Preloader";
 import Grid from "./components/Grid";
 import Booklet from "./components/Booklet";
+import Slider from "./components/Slider";
 
 import Home from "./pages/Home";
 import Legals from "./pages/Legals";
@@ -39,6 +40,7 @@ class App {
     this.createRouter();
     this.createPreloader();
     this.createBooklet();
+    this.createSlider();
 
     this.addEventListeners();
 
@@ -95,6 +97,10 @@ class App {
 
   createBooklet() {
     this.booklet = new Booklet();
+  }
+
+  createSlider() {
+    this.slider = new Slider();
   }
 
   /**

@@ -35,6 +35,9 @@ function renderSanityText(blocks, separator = "") {
                   if (mark === "strong") {
                     text = `<strong>${text}</strong>`;
                   }
+                  if (mark === "underline") {
+                    text = `<span class="text-colored">${text}</span>`;
+                  }
                 });
               }
 

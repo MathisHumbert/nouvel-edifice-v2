@@ -44,23 +44,16 @@ include ../mixins/icons.pug
           +arrow-icon("")
       .home__achievements__slider 
         ul.home__achievements__list 
-          each item, index in sanity.achievements.items 
+          each item, index in [...sanity.achievements.items, ...sanity.achievements.items,...sanity.achievements.items] 
             li.home__achievements__item
               header.home__achievements__item__header
                 h2=item.title 
                 if item.nouveau
                   h2.new Nouveau
               .home__achievements__item__inner
-                .home__achievements__medias
-                  button.home__achievements__medias_prev
-                    +small-arrow-icon("")
-                  .home__achievements__medias__inner 
-                    if item.images.length > 0
-                      each media in item.images 
-                        figure 
-                          img(src=sanity.urlFor(media, 1280), alt=media.alt)
-                  button.home__achievements__medias_next
-                    +small-arrow-icon("")
+                figure.home__achievements__item__figure(data-images=JSON.stringify(item.images.map(img => ({ url: sanity.urlFor(img, 1280), alt: img.alt }))))
+                  img(src=sanity.urlFor(item.images[0], 1280), alt=item.images[0].alt)
+                  span.home__achievements__item__after Cliquez pour découvrir le projet
                 .home__achievements__infos 
                   div.home__achievements__infos__content!=sanity.renderPortableText(item.description, '<span class="separator"></span>')
                   button.home__achievements__download Téléchargez la brochure
@@ -75,10 +68,9 @@ include ../mixins/icons.pug
     .home__investment__list 
       each item in sanity.investment.items 
         .home__investment__item 
-          h3 
+          h3
             strong + 
-            | Investir en 
-            strong loi #{item.title}
+            !=sanity.renderSanityText(item.title)
           .home__investment__sublist
             p.home__investment__item__description=item.description
             each subitem in item.subItems

@@ -108,10 +108,6 @@
       font-size: calc(5rem * 0.75);
       line-height: calc(8rem * 0.75);
     }
-
-    strong {
-      color: $color-orange;
-    }
   }
 
   .home__hero__background {
@@ -265,6 +261,7 @@
       @extend %cover;
 
       object-fit: cover;
+      object-position: center;
     }
   }
 }
@@ -378,60 +375,39 @@
     display: flex;
   }
 
-  .home__achievements__medias {
+  .home__achievements__item__figure {
     position: relative;
-    display: flex;
-    overflow: hidden;
     width: 66%;
     aspect-ratio: 1 / 0.6;
-  }
 
-  .home__achievements__medias__inner {
-    display: flex;
-    width: fit-content;
+    .home__achievements__item__after {
+      @extend %cover;
 
-    figure {
-      position: relative;
-      width: 85rem;
-      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      background: rgba($color: #000000, $alpha: 0.6);
+      color: $color-white;
       cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.7s $expo-out;
 
-      @include mobile {
-        width: 58rem;
-      }
-
-      img {
-        @extend %cover;
-
-        object-fit: cover;
+      &:hover {
+        opacity: 1;
       }
     }
-  }
-  .home__achievements__medias_prev,
-  .home__achievements__medias_next {
-    width: 3.8rem;
-    height: 3.8rem;
-    padding: 0;
 
-    svg {
-      width: 3.8rem;
-      height: 3.8rem;
+    img {
+      @extend %cover;
+
+      object-fit: cover;
+      object-position: center;
     }
-  }
-
-  .home__achievements__medias_prev {
-    position: absolute;
-    left: 3.4rem;
-    top: 50%;
-    transform: translate(0, -50%) rotate(180deg);
-    z-index: 2;
-  }
-
-  .home__achievements__medias_next {
-    position: absolute;
-    right: 3.4rem;
-    top: 50%;
-    transform: translate(0, -50%);
   }
 
   .home__achievements__infos {
@@ -509,10 +485,6 @@
     letter-spacing: 0.05rem;
     font-weight: bold;
     text-transform: uppercase;
-
-    strong {
-      color: $color-orange;
-    }
   }
 
   .home__investment__list {
@@ -645,6 +617,7 @@
         @extend %cover;
 
         object-fit: cover;
+        object-position: center;
       }
     }
 
@@ -725,6 +698,7 @@
         @extend %cover;
 
         object-fit: cover;
+        object-position: center;
       }
     }
 
@@ -907,7 +881,7 @@
     white-space: nowrap;
 
     strong {
-      font-weight: 700;
+      font-weight: bold;
     }
   }
 
