@@ -62,3 +62,21 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: $fonts-didot;
+  src: url("../fonts/Didot.woff2") format("woff2"),
+    url("../fonts/Didot.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $fonts-didot;
+  src: url("../fonts/Didot-Bold.woff2") format("woff2"),
+    url("../fonts/Didot-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

@@ -6,17 +6,21 @@ include ../mixins/icons.pug
       video.home__nav__video(src="/assets/hero-video.mp4" controls=false playsinline autoplay muted) 
       +hero-icon('home__nav__icon')
     ul.home__nav__list 
-      each item in data.nav
-        li.home__nav__item
+      each item, index in data.nav
+        li.home__nav__item(data-animation="title" data-delay=`${0.1 + index * 0.05}`)
           a(href=item.key)=item.text
   a.home__fixed(href="#contact") Contact
+  button.home__menu 
+    span.home__menu__line
+    span.home__menu__line
+    span.home__menu__line
   .home__hero 
-    h1.home__hero__title!=sanity.renderSanityText(sanity.hero.title[0]) 
+    h1.home__hero__title(data-animation="text" data-delay="0.25")!=sanity.renderSanityText(sanity.hero.title[0]) 
     img.home__hero__background(src="/assets/hero-background.png", alt="hero-background")
   .home__manifesto#manifesto
     header.home__header
-      h2.home__header__title!=sanity.renderSanityText(sanity.manifesto.title[0]) 
-      span.home__header__line
+      h2.home__header__title(data-animation="text" data-delay="0.3")!=sanity.renderSanityText(sanity.manifesto.title[0]) 
+      span.home__header__line(data-animation="appear" data-delay="0.5")
     .home__manifesto__inner
       button.home__manifesto__prev 
         +arrow-icon("")
@@ -36,8 +40,8 @@ include ../mixins/icons.pug
         +arrow-icon("")
   .home__achievements#achievements
     header.home__header.reversed
-      h2.home__header__title!=sanity.renderSanityText(sanity.achievements.title[0]) 
-      span.home__header__line
+      h2.home__header__title(data-animation="text" data-delay="0.1")!=sanity.renderSanityText(sanity.achievements.title[0]) 
+      span.home__header__line(data-animation="appear" data-delay="0.5")
     .home__achievements__inner
       if sanity.achievements.items.length > 0
         button.home__achievements__prev 
@@ -62,9 +66,9 @@ include ../mixins/icons.pug
           +arrow-icon("")
   .home__investment#investment
     header.home__header
-      h2.home__header__title!=sanity.renderSanityText(sanity.investment.title[0]) 
-      span.home__header__line
-    h3.home__investment__subtitle!=sanity.renderSanityText(sanity.investment.subtitle[0])
+      h2.home__header__title(data-animation="text" data-delay="0.1")!=sanity.renderSanityText(sanity.investment.title[0]) 
+      span.home__header__line(data-animation="appear" data-delay="0.5")
+    h3.home__investment__subtitle(data-animation="text" data-delay="0.2")!=sanity.renderSanityText(sanity.investment.subtitle[0])
     .home__investment__list 
       each item in sanity.investment.items 
         .home__investment__item 
@@ -81,22 +85,22 @@ include ../mixins/icons.pug
                 div.home__investment__subitem__description!=sanity.renderPortableText(subitem.description)
   .home__expertise#expertise
     header.home__header.reversed
-      h2.home__header__title!=sanity.renderSanityText(sanity.expertise.title[0]) 
-      span.home__header__line
-    h3.home__expertise__subtitle!=sanity.renderSanityText(sanity.expertise.subtitle[0])
+      h2.home__header__title(data-animation="text" data-delay="0.1")!=sanity.renderSanityText(sanity.expertise.title[0]) 
+      span.home__header__line(data-animation="appear" data-delay="0.5")
+    h3.home__expertise__subtitle(data-animation="text" data-delay="0.2")!=sanity.renderSanityText(sanity.expertise.subtitle[0])
     ul.home__expertise__list 
       each item in sanity.expertise.items
         li.home__expertise__item
-          figure 
-            img(src=sanity.urlFor(item.image, 1280), alt=item.image.alt)
+          figure(data-animation="parallax")
+            img(src=sanity.urlFor(item.image, 1280), alt=item.image.alt )
           div.home__expertise__item__infos
             h4=item.title
             p=item.description
             +pincel-icon("")
   .home__about#about
     header.home__header
-      h2.home__header__title!=sanity.renderSanityText(sanity.about.title[0]) 
-      span.home__header__line
+      h2.home__header__title(data-animation="text" data-delay="0.1")!=sanity.renderSanityText(sanity.about.title[0]) 
+      span.home__header__line(data-animation="appear" data-delay="0.5")
     .home__about__inner 
       .home__about__left
         figure 

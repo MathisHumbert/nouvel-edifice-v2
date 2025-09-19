@@ -7,6 +7,7 @@ import PageLoad from "./PageLoad";
 import Appear from "../animations/Appear";
 import Text from "../animations/Text";
 import Title from "../animations/Title";
+import Parallax from "../animations/Parallax";
 
 import { map, each } from "../utils/dom";
 import { events } from "../utils/events";
@@ -27,6 +28,7 @@ export default class Page {
         animationsAppears: '[data-animation="appear"]',
         animationsTexts: '[data-animation="text"]',
         animationsTitles: '[data-animation="title"]',
+        animationsParallaxs: '[data-animation="parallax"]',
 
         ...elements,
       },
@@ -96,6 +98,18 @@ export default class Page {
     });
 
     this.animations.push(...this.animationsTitle);
+
+    /**
+     * Parallax.
+     */
+    this.animationsParallax = map(
+      this.elements.animationsParallaxs,
+      (element) => {
+        return new Parallax({ element });
+      }
+    );
+
+    this.animations.push(...this.animationsParallax);
   }
 
   /**
@@ -144,7 +158,7 @@ export default class Page {
           color: this.element.getAttribute("data-color"),
           duration: 0.5,
           ease: easeOut,
-        }).to(this.element, { autoAlpha: 1, duration: 0.5, ease: easeOut }, 0);
+        }).to(this.element, { autoAlpha: 1, duration: 1, ease: easeOut }, 0);
       }
 
       tl.call(() => {

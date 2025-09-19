@@ -7,6 +7,11 @@
   &--active {
     @extend %page--active;
   }
+
+  @include desktop {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
 }
 
 .home__nav {
@@ -25,6 +30,12 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 6rem;
+  }
+
+  @include desktop {
+    max-width: 1920px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .home__nav__header {
@@ -88,6 +99,29 @@
   z-index: z("fixed");
 }
 
+.home__menu {
+  position: fixed;
+  top: 4rem;
+  right: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  pointer-events: all;
+  opacity: 0;
+  transition: opacity 0.7s $expo-out;
+  z-index: z("navigation");
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.home__menu__line {
+  width: 4rem;
+  height: clamp(2px, 0.2rem, 0.2rem);
+  background: $color-black;
+}
+
 .home__hero {
   position: relative;
   padding: 34rem 32rem 16rem;
@@ -114,8 +148,8 @@
     position: absolute;
     top: 20rem;
     right: -26rem;
-    width: 154.6rem;
-    height: 141rem;
+    width: calc(154.6rem * 0.75);
+    height: calc(141rem * 0.75);
     pointer-events: none;
     z-index: -1;
 
@@ -189,32 +223,41 @@
 
   .home__manifesto__item {
     width: calc(100vw - 32rem * 2);
-    height: fit-content;
+    height: 100%;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     background: $color-beige;
 
     @include mobile {
+      width: calc(100vw - 8rem * 2);
       flex-direction: column;
       gap: 4rem;
     }
 
-    @include mobile {
-      width: calc(100vw - 8rem * 2);
+    @include desktop {
+      width: calc(1920px - 32rem * 2);
+    }
+
+    @include desktop {
+      max-width: 1920px;
+      margin: 0 auto;
     }
   }
 
   .home__manifesto__item__infos {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 6rem;
+    padding: 6rem;
 
     h3 {
+      font-family: $fonts-didot;
       font-size: 12rem;
       line-height: 16rem;
+      font-weight: bold;
       color: $color-white;
     }
 
@@ -231,10 +274,12 @@
       font-weight: bold;
       color: $color-orange;
       text-transform: uppercase;
+      padding: 0 10rem;
     }
 
     h5 {
       font-weight: bold;
+      padding: 0 5rem;
     }
 
     p {
@@ -251,7 +296,7 @@
   figure {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    height: 100%;
 
     @include mobile {
       aspect-ratio: 1 / 0.56;
@@ -335,6 +380,10 @@
 
     @include mobile {
       width: calc(100vw - 8rem * 2);
+    }
+
+    @include desktop {
+      width: calc(1920px - 32rem * 2);
     }
   }
 
@@ -612,6 +661,7 @@
       position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
+      overflow: hidden;
 
       img {
         @extend %cover;
@@ -733,7 +783,9 @@
     .home__about__center__quote {
       position: relative;
       max-width: 46rem;
+
       p {
+        font-family: $fonts-didot;
         font-size: 3.2rem;
         line-height: 3.2rem;
         color: $color-orange;

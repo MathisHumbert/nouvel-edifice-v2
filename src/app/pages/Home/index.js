@@ -15,6 +15,8 @@ export default class Home extends Page {
       elements: {
         navVideo: ".home__nav__video",
         navIcon: ".home__nav__icon",
+        hero: ".home__hero",
+        heroBackground: ".home__hero__background",
       },
     });
   }
@@ -50,6 +52,22 @@ export default class Home extends Page {
   show() {
     let tl = null;
 
+    gsap.fromTo(
+      this.elements.heroBackground,
+      {
+        yPercent: 0,
+      },
+      {
+        yPercent: 20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: this.elements.hero,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
     return super.show(tl);
   }
 

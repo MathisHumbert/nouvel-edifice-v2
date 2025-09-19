@@ -30,6 +30,10 @@ html {
   @include mobile {
     font-size: calc(100vw / $sizes-mobile * 10);
   }
+
+  @include desktop {
+    font-size: 10px;
+  }
 }
 
 html,
@@ -127,7 +131,7 @@ canvas {
 }
 
 [data-animation="appear"] span {
-  will-change: opacity, visibility;
+  will-change: transform;
 }
 
 [data-animation="text"] div div {

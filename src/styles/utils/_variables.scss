@@ -7,6 +7,7 @@ $ease-out: cubic-bezier(0.39, 0.575, 0.565, 1);
 $expo-out: cubic-bezier(0.19, 1, 0.22, 1);
 
 $font-maquette: "ARS Maquette Pro";
+$fonts-didot: "Didot";
 
 $color-white: #ffffff;
 $color-black: #2f3538;
@@ -35,6 +36,7 @@ $z-indexes: (
   "preloader",
   "booklet",
   "slider",
+  "menu",
   "navigation",
   "fixed",
   "content",

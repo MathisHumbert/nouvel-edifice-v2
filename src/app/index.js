@@ -13,6 +13,7 @@ import Preloader from "./components/Preloader";
 import Grid from "./components/Grid";
 import Booklet from "./components/Booklet";
 import Slider from "./components/Slider";
+import Menu from "./components/Menu";
 
 import Home from "./pages/Home";
 import Legals from "./pages/Legals";
@@ -41,6 +42,7 @@ class App {
     this.createPreloader();
     this.createBooklet();
     this.createSlider();
+    this.createMenu();
 
     this.addEventListeners();
 
@@ -101,6 +103,10 @@ class App {
 
   createSlider() {
     this.slider = new Slider();
+  }
+
+  createMenu() {
+    this.menu = new Menu();
   }
 
   /**

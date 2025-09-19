@@ -10,7 +10,7 @@ export default class Appear extends Animation {
 
   animateIn() {
     gsap.to(this.element, {
-      opacity: 1,
+      scale: 1,
       delay: this.delay,
       duration: 1,
       ease: easeInOut,
@@ -20,7 +20,10 @@ export default class Appear extends Animation {
   }
 
   animateOut() {
-    gsap.set(this.element, { opacity: 0 });
+    gsap.set(this.element, {
+      scale: 0,
+      transformOrigin: "left center",
+    });
 
     super.animateOut();
   }

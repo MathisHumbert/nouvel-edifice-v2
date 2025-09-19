@@ -1,0 +1,7 @@
+.menu 
+  .menu__inner
+    button.menu__close Fermer X
+    ul.menu__links 
+      each item, index in data.nav
+        li.menu__link
+          a(href=item.key)=item.text

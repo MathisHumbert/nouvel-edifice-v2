@@ -37,6 +37,12 @@ export default class Investment extends Component {
   }
 
   openSubList(item) {
+    each(this.elements.items, (otherItem) => {
+      if (otherItem !== item && otherItem.isOpen) {
+        this.closeSubList(otherItem);
+      }
+    });
+
     item.isOpen = true;
     item.children[0].children[0].textContent = "- ";
     gsap.to(item.subListElement, {

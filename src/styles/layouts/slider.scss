@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   z-index: z("slider");
-  background: rgba(47, 53, 56, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 
   display: none;
@@ -19,7 +19,7 @@
 
   .slider__inner {
     position: relative;
-    width: 60vw;
+    width: 75vw;
     aspect-ratio: 1 / 0.56;
     cursor: initial;
   }
@@ -48,7 +48,7 @@
   }
 
   .slider__image {
-    width: 60vw;
+    width: 75vw;
     aspect-ratio: 1 / 0.56;
 
     object-fit: cover;
